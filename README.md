@@ -7,11 +7,6 @@ A bubble graph, for representing any kind of data.
 
 
 
-
-
-
-![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/selectedBubble.png)
-
 # Install
 
 With npm:
@@ -125,6 +120,14 @@ const dataSource = {
     }
 }
 ```
+
+
+## Selected element bubble
+
+   After click on bubble plot with the help of event `dataPlotClick` fuction, we are showing the bubble element selected in chart. 
+
+![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/selectedBubble.png)
+
 
 # Example
 
