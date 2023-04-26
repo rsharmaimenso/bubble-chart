@@ -1,5 +1,5 @@
 A simple and lightweight official React component for FusionCharts JavaScript charting library. `react-fusioncharts` enables you to add JavaScript charts in your React application or project without any hassle.
-```
+
 # bubble chart
 A bubble graph, for representing any kind of data.
 
