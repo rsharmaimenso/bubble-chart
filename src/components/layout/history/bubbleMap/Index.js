@@ -28,7 +28,6 @@ function Index() {
             const highestCount = datas.reduce(function (highest, current) {
                 return (highest.count > current.count) ? highest : current;
             });
-            //setData(datas); changes on 28-03-2023
             highestCount["z"] = 100;
             highestCount["color"] = getColor();
             highestCount["name"] = highestCount.key + " <br />" + highestCount.count;
