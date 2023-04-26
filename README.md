@@ -3,7 +3,12 @@ A simple and lightweight official React component for FusionCharts JavaScript ch
 # bubble chart
 A bubble graph, for representing any kind of data.
 
-![image](https://user-images.githubusercontent.com/35371660/102034986-abe99200-3e02-11eb-85d7-5128b90e2999.png)
+![image](https://github.com/rsharmaimenso/bubble-chart/tree/master/public/allBUbble.png)
+
+
+
+
+![image](https://github.com/rsharmaimenso/bubble-chart/tree/master/public/selectedBubble.png)
 
 # Install
 
@@ -22,7 +27,7 @@ fusioncharts
 
 # Usage
 
-# you have created your app using `create-react-app`
+### you have created your app using `create-react-app`
 
 Import React, `react-fusioncharts` and FusionCharts in your app:
 
@@ -33,6 +38,195 @@ import FusionCharts from "fusioncharts";
 import Column2D from "fusioncharts/fusioncharts.charts";
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 ```
+
+
+## Highlight bubble
+
+When we click of any bubble plot, Its show selected and `highlighted`.
+
+```
+
+## Basic Chart
+
+### Data Type
+
+The dataset is entered as a `data`. Each data must be completed with the `name` and the `data`, and the data must include `x`,`y` coordinates, and the `z` is repratation size of bubble.
+
+```js
+
+const dataSource = {
+    dataset: [
+        {
+            data: [
+                    {   
+                        "x": "1900",
+                        "y": "130.79",
+                        "z": "38.97",
+                        "key":"corporation",
+                        "name":"corporation",
+                        "count":1079       
+                    },
+                    {
+                        "x": "1300",
+                        "y": "200.89",
+                        "z": "17.71",
+                        "key":"people_new",
+                        "name":"people",
+                        "count":3853         
+                    },
+                    {
+                        "x": "2400",
+                        "y": "240.74",
+                        "key":"company",
+                        "count":7600    
+                    },
+            ]
+        }
+    ],
+}
+```
+
+### BubbleChart.dataPlotClick(event, handler)
+
+We are use this event function in dataset. There is following function we used...
+
+Type: `Function`
+
+* `{String}event`: the name of the event.
+* `{Function}handler`: handler function.
+
+
+The events available are:
+
+* `mouseenter` : triggered when the mouse enter into the bubble.
+* `mouseover `: triggered when the mouser is over the bubble.
+* `mouseout `: triggered when the mouse left the bubble.
+* `click` : triggered when the bubble clicked.
+
+```
+
+const dataSource = {
+    events: {
+        dataPlotClick: function (ev) {
+            //goes with your code
+        },
+        dataplotRollOver: function () {
+            // change background color of plottooltext when hovering over a data point
+            var plottooltext = document.getElementsByClassName("fusioncharts-div")[0];
+            plottooltext.style.backgroundColor = "#000000"; // set background color to black
+            plottooltext.style.color = "#fff"; // set text color to white
+        },
+        dataplotRollOut: function () {
+            // reset background color of plottooltext when rolling out of a data point
+            var plottooltext = document.getElementsByClassName("fusioncharts-div")[0];
+            plottooltext.style.backgroundColor = ""; // reset to default background color
+        }
+    }
+}
+```
+
+# Example
+
+```js
+// STEP 1 - Include Dependencies
+// Include react
+import React, { useEffect, useState } from "react";
+import ReactFC from "react-fusioncharts";
+import FusionCharts from "fusioncharts";
+import Column2D from "fusioncharts/fusioncharts.charts";
+import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import bgCircle from "../../../../assets/images/bubbleBgImage.png";
+
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
+
+export default function BubbleChart(props) {
+    const [bubbleChart, setBubbleChart] = useState([]);
+
+    //dataSource uses for chart property
+    const dataSource = {
+        chart: {
+            xaxisname: "",
+            yaxisname: "",
+            yAxisValueAlpha: "0",
+            xAxisValueAlpha: "0",
+            theme: "fusion",
+            showvalues: "1",
+            plottooltext: "$name",
+            valueFontColor: "#FFFFFF",
+            valueFontSize: 9,
+            useEllipsesWhenOverflow: "1",
+            divLineAlpha: "0",
+            bgImage:bgCircle,
+            bgAlpha: "1",
+            bgImageHAlign:"middle",
+            bgImageVAlign:"middle",
+            bgImageScale:"tile"
+        },
+        xAxis: {
+            visible: "0",
+            showLabels:"0"
+        },
+        categories: [
+            {
+                category: [
+                    {
+                        label: "",
+                        x: "",
+                    }
+                ]
+            }
+        ],
+        dataset: [
+            {
+                data: []
+            }
+        ],
+        events: {
+            dataPlotClick: function (ev) {
+                props.handleChange(ev.data.index, ev.data.displayValue);
+            },
+            dataplotRollOver: function () {
+                // change background color of plottooltext when hovering over a data point
+                var plottooltext = document.getElementsByClassName("fusioncharts-div")[0];
+                plottooltext.style.backgroundColor = "#000000"; // set background color to black
+                plottooltext.style.color = "#fff"; // set text color to white
+            },
+            dataplotRollOut: function () {
+                // reset background color of plottooltext when rolling out of a data point
+                var plottooltext = document.getElementsByClassName("fusioncharts-div")[0];
+                plottooltext.style.backgroundColor = ""; // reset to default background color
+            }
+        }
+    };
+
+    const bubbleChartDataPrepration = () => {
+        dataSource.dataset[0].data = props.bubbleChart;
+        setBubbleChart(dataSource);
+    };
+
+    useEffect(() => {
+        bubbleChartDataPrepration();
+    }, [props.refresh]);
+
+    return (
+        <ReactFC
+            type="bubble"
+            width="100%"
+            height="100%"
+            dataFormat="JSON"
+            renderAt="chart-container"
+            dataSource={bubbleChart}
+            {...bubbleChart}
+        />
+    );
+}
+
+```
+Please make sure when you use this code file also include index.js file in your project.
+
+Draw the chart.
+
+Please feel free to open pull requests to make any change.
 
 
 

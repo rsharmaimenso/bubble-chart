@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import useState from "react-usestateref";
-import bubbleData from "./bubbleData.json";
-import bubbleItem from "./bubbleItem.json";
+import bubbleData from "../../../../data/bubbleData.json";
+import bubbleItem from "../../../../data/bubbleItem.json";
 import restrict from "../../../../assets/images/restrict.png";
 import BubbleChart from "./BubbleChart";
 
@@ -16,14 +16,14 @@ function Index() {
 
     // get Bubble list data
     const getBubbleList = (bubble) => {
-        makeData(bubbleData); //called prepare bubble data
+        bubbleChartDataPrepration(bubbleData); //called prepare bubble data
         if (bubble.length) {
             setBubbleItemData(bubbleItem);
         }
     };
 
     //prepare bubble data
-    const makeData = (datas) => {
+    const bubbleChartDataPrepration = (datas) => {
         if (datas.length) {
             const highestCount = datas.reduce(function (highest, current) {
                 return (highest.count > current.count) ? highest : current;
@@ -50,8 +50,8 @@ function Index() {
         getBubbleList(bubbleData);
     }, []);
 
-    // this fuction  for table data filter
-    const tableHandleChange = (id) => {
+    // this fuction for data filter
+    const handleChange = (id) => {
         setBubbleItemData(bubbleItem);
         selectedIndexRef.current === id ? setBubbleFlag(!bubbleFlagRef.current) : setBubbleFlag(false);
         selectBubbleElement(id);
@@ -105,7 +105,7 @@ function Index() {
                                 <BubbleChart
                                     refresh={refresh}
                                     bubbleChart={graphData}
-                                    tableHandleChange={(id) => tableHandleChange(id)}
+                                    handleChange={(id) => handleChange(id)}
                                 />
                             </>
                             : <div className="restrict"><img src={restrict} alt="restrict" className="restrict__img" /></div>

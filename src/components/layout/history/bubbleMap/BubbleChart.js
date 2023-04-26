@@ -53,7 +53,7 @@ export default function BubbleChart(props) {
         ],
         events: {
             dataPlotClick: function (ev) {
-                props.tableHandleChange(ev.data.index, ev.data.displayValue);
+                props.handleChange(ev.data.index, ev.data.displayValue);
             },
             dataplotRollOver: function () {
                 // change background color of plottooltext when hovering over a data point
@@ -69,13 +69,13 @@ export default function BubbleChart(props) {
         }
     };
 
-    const makeData = () => {
+    const bubbleChartDataPrepration = () => {
         dataSource.dataset[0].data = props.bubbleChart;
         setBubbleChart(dataSource);
     };
 
     useEffect(() => {
-        makeData();
+        bubbleChartDataPrepration();
     }, [props.refresh]);
 
     return (
