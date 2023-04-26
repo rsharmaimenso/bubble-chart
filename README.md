@@ -1,6 +1,6 @@
 A simple and lightweight official React component for FusionCharts JavaScript charting library. `react-fusioncharts` enables you to add JavaScript charts in your React application or project without any hassle.
 
-# Bubble chart ( Highlighting bubble )\
+# Bubble chart ( Highlighting bubble )
 
 Bubble chart for representing data.
 
@@ -85,7 +85,7 @@ const dataSource = {
 }
 ```
 
-### BubbleChart.dataPlotClick(event, handler)
+## dataPlotClick(event, handler)
 
 We use this event function in dataset. There are following function we used...
 
