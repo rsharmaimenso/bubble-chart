@@ -1,6 +1,25 @@
+A simple and lightweight official React component for FusionCharts JavaScript charting library. `react-fusioncharts` enables you to add JavaScript charts in your React application or project without any hassle.
+```
 # bubble chart
+A bubble graph, for representing any kind of data.
 
+![image](https://user-images.githubusercontent.com/35371660/102034986-abe99200-3e02-11eb-85d7-5128b90e2999.png)
 
+# Install
+```
+With npm:
+```
+npm install d3-bubble-matrix
+```
+With bower:
+```
+bower install d3-bubble-matrix
+```
+Dependencies:
+```
+npm install d3
+npm install d3-tip
+```
 
 ## Getting started
 
