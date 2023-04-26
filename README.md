@@ -1,7 +1,8 @@
 A simple and lightweight official React component for FusionCharts JavaScript charting library. `react-fusioncharts` enables you to add JavaScript charts in your React application or project without any hassle.
 
-# Bubble chart
-A bubble graph, for representing any kind of data.
+# Bubble chart ( Highlighting bubble )\
+
+Bubble chart for representing data.
 
 ![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/allBUbble.png)
 
@@ -46,7 +47,7 @@ When we click of any bubble plot, Its show selected and `highlighted`.
 
 ### Data Type
 
-The dataset is entered as a `data`. Each data must be completed with the `name` and the `data`, and the data must include `x`,`y` coordinates, and the `z` is repratation size of bubble.
+The dataset is entered as a `data`. Each data must be completed with the `name` and `data`, and data must be include `x`,`y` coordinates, and `z` is repratation size of bubble.
 
 ```js
 
@@ -86,7 +87,7 @@ const dataSource = {
 
 ### BubbleChart.dataPlotClick(event, handler)
 
-We are use this event function in dataset. There is following function we used...
+We use this event function in dataset. There are following function we used...
 
 Type: `Function`
 
@@ -94,7 +95,7 @@ Type: `Function`
 * `{Function}handler`: handler function.
 
 
-The events available are:
+Other available events :
 
 * `mouseenter` : triggered when the mouse enter into the bubble.
 * `mouseover `: triggered when the mouser is over the bubble.
@@ -123,6 +124,8 @@ const dataSource = {
 }
 ```
 
+# Example
+
 
 ##  Selected bubble element 
 
@@ -131,7 +134,8 @@ const dataSource = {
 ![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/selectedBubble.png)
 
 
-# Example
+# Code
+
 
 ```js
 // STEP 1 - Include Dependencies
@@ -230,10 +234,8 @@ export default function BubbleChart(props) {
 ```
 
 
-#### Please make sure when you use this code file also include `index.js` file in your project.
+#### You need to include `index.js` file to use above code.
 
-
-Or
 
 
 Draw the chart.
