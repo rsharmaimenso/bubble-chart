@@ -3,12 +3,14 @@ A simple and lightweight official React component for FusionCharts JavaScript ch
 # bubble chart
 A bubble graph, for representing any kind of data.
 
-![image](https://github.com/rsharmaimenso/bubble-chart/tree/master/public/allBUbble.png)
+![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/allBUbble.png)
 
 
 
 
-![image](https://github.com/rsharmaimenso/bubble-chart/tree/master/public/selectedBubble.png)
+
+
+![image](https://github.com/rsharmaimenso/bubble-chart/blob/master/public/selectedBubble.png)
 
 # Install
 
@@ -40,11 +42,10 @@ import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 ```
 
 
-## Highlight bubble
+## Highlighted bubble
 
 When we click of any bubble plot, Its show selected and `highlighted`.
 
-```
 
 ## Basic Chart
 
@@ -222,7 +223,9 @@ export default function BubbleChart(props) {
 }
 
 ```
-Please make sure when you use this code file also include index.js file in your project.
+
+
+#### Please make sure when you use this code file also include `index.js` file in your project.
 
 Draw the chart.
 
